@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 * {
@@ -14,8 +15,6 @@ body {
 body {
   font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #000;
   color: #fff;
 }
@@ -30,11 +29,14 @@ h1 {
 
 .app {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh; /* FIXED: Force full screen height */
   position: relative;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .app:before {
@@ -67,8 +69,9 @@ h1 {
 }
 
 .container {
+  width: 100%;
   max-width: 700px;
-  min-height: 100vh;
+  height: 100%;
   margin: auto;
   padding: 0 1rem;
   display: flex;
@@ -82,10 +85,11 @@ h1 {
 }
 
 .app .description {
-  position: relative;
-  right: -90%;
-  transform-origin: 0 0;
-  transform: rotate(269deg);
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  transform: rotate(90deg);
+  transform-origin: top right;
 }
 
 .app .bottom {
@@ -96,14 +100,9 @@ h1 {
   margin: 1rem auto;
   padding: 1rem;
   border-radius: 12px;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.4
-  ); /* Changed from white-ish to transparent black */
+  background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
-  backdrop-filter: blur(4px); /* Optional: adds a glass effect */
+  backdrop-filter: blur(4px);
 }
 
 .bold {
